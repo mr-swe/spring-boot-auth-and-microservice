@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: family_transaction
+  profiles:
+    active: dev
+
+server:
+  port: 7070
