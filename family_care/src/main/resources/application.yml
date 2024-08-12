@@ -1,8 +1,8 @@
 spring:
   application:
-    name: family_transaction
+    name: family_care
   profiles:
     active: dev
 
 server:
-  port: 7071
+  port: 7072
