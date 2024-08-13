@@ -1,6 +1,6 @@
 spring:
   application:
-    name: family_care
+    name: family-care
   profiles:
     active: dev
 
