@@ -1,6 +1,10 @@
 spring:
   application:
     name: family-care
+    # root path.
+  mvc:
+    servlet:
+      path: /fc/
   profiles:
     active: dev
 
