@@ -1,6 +1,10 @@
 spring:
   application:
     name: family-transaction
+  # root path.
+  mvc:
+    servlet:
+      path: /ft/
   profiles:
     active: dev
 

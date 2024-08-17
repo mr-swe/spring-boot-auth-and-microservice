@@ -1,7 +1,7 @@
 spring:
   application:
     name: family-care
-    # root path.
+  # root path.
   mvc:
     servlet:
       path: /fc/
