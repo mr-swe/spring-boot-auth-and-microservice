@@ -24,3 +24,7 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8762/eureka/
+
+#auth:
+#  server:
+#    url: http://localhost:7072/
