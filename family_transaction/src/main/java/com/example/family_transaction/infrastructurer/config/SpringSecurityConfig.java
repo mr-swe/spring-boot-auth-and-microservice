@@ -1,4 +1,4 @@
-package com.example.family_care.infrastructure.config;
+package com.example.family_transaction.infrastructurer.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,13 +27,18 @@ public class SpringSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/assets/**", "/webjars/**", "/login").permitAll()
-                        .anyRequest().authenticated()) // Require authentication for all other requests
+        http
+                .authorizeRequests(authorizeRequests ->
+                        authorizeRequests
+                                .anyRequest().authenticated() // Require authentication for all other requests
+                )
                 .csrf(csrf -> csrf.disable()) // Disable CSRF protection using the new lambda-based configuration
-                .formLogin(formLogin -> formLogin
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/home", true)); // Specify custom login page if needed
+                .formLogin(formLogin -> formLogin.loginPage("/login")) // Specify custom login page if needed
+                .oauth2ResourceServer(oauth2 -> oauth2
+                        .jwt(jwt -> jwt
+                                .jwtAuthenticationConverter(jwtAuthenticationConverter()) // Configure JWT authentication converter
+                        )
+                );
         return http.build();
     }
 
@@ -62,13 +67,5 @@ public class SpringSecurityConfig {
         );
 
         return converter;
-    }
-
-
-
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }

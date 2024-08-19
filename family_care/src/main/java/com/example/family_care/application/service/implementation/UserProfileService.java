@@ -4,6 +4,7 @@ import com.example.family_care.application.service.constract.IUserProfileService
 import com.example.family_care.domain.entity.UserProfile;
 import com.example.family_care.domain.repository.UserProfileRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,16 +16,16 @@ import org.springframework.stereotype.Service;
 public class UserProfileService implements IUserProfileService {
 
     private final UserProfileRepository repository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserProfileService(UserProfileRepository repository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserProfileService(UserProfileRepository repository, PasswordEncoder passwordEncoder) {
         this.repository = repository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public UserProfile createUser(UserProfile request) {
-        request.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
+        request.setPassword(passwordEncoder.encode(request.getPassword()));
         return repository.save(request);
     }
 }

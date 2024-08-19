@@ -16,6 +16,11 @@ spring:
     open-in-view: false
     generate-ddl: true
 
+  security:
+    oauth2:
+      authorization-server:
+        issuer: http://localhost:7072
+
 eureka:
   instance:
     preferIpAddress: true
@@ -24,7 +29,3 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8762/eureka/
-
-#auth:
-#  server:
-#    url: http://localhost:7072/
