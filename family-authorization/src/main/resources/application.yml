@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: family-authorization
+  # root path.
+#  mvc:
+#    servlet:
+#      path: /fc/
+  profiles:
+    active: dev
+
+server:
+  port: 7073
