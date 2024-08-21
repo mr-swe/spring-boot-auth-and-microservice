@@ -8,6 +8,10 @@ spring:
           uri: http://localhost:7072
           predicates:
             - Path=/fc/**
+        - id: family-authorization
+          uri: http://localhost:7073
+          predicates:
+            - Path=/login/**, /logout/**
 
 server:
   port: 7070

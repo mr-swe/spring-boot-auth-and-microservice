@@ -49,10 +49,19 @@
                 <div class="card-header text-center">
                     Login with OAuth2
                 </div>
-                <div class="card-body text-center">
+                <form class="card-body text-center" method="post" th:action="@{/login}">
                     <p class="card-text">Please login using one of the following options:</p>
-                    <a class="btn btn-custom" href="/oauth2/authorization/google">Login with Google</a>
-                </div>
+                    <div style="margin-top: 8px">
+                        <input required autofocus id="username" name="username" style="padding: 10px" placeholder="User Name">
+                    </div>
+                    <div style="margin-top: 5px">
+                        <input required autofocus id="password" name="password" style="padding: 10px" type="password" placeholder="Password">
+                    </div>
+
+                    <div style="margin-top: 5px">
+                        <button type="submit" style="padding: 8px 15px 8px 15px; background-color: limegreen; color: whitesmoke">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -60,5 +69,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--<script src="https://cdn.tailwindcss.com"></script>-->
 </body>
 </html>
